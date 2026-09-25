@@ -218,7 +218,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,label:focus-visible{
 .res-empty{color:var(--muted-2);font-size:var(--step-small);text-align:center;padding:3rem 1rem}
 .res-empty strong{display:block;color:var(--muted);font-family:Unbounded,sans-serif;font-size:1.05rem;margin-bottom:.6rem;font-weight:600}
 .money{font-family:Unbounded,sans-serif;font-weight:800;font-size:clamp(2rem,1.2rem + 3vw,3.2rem);letter-spacing:-.04em;line-height:1;color:var(--accent)}
-.money-sub{font-size:.8rem;color:var(--muted-2);margin-top:.6rem}
 .funnel{margin:1.8rem 0;border-top:1px solid var(--line)}
 .fn-row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--line);font-size:.88rem}
 .fn-row span:first-child{color:var(--muted)}
@@ -512,7 +511,6 @@ footer a:hover{color:var(--accent)}
         <div id="resBody" hidden>
           <div class="eyebrow" style="margin-bottom:1rem">Первый запуск, реалистично</div>
           <div class="money" id="moneyMain">—</div>
-          <div class="money-sub" id="moneySub"></div>
 
           <div class="funnel">
             <div class="fn-row"><span>Увидят оффер</span><span id="fReach">—</span></div>
@@ -847,11 +845,6 @@ footer a:hover{color:var(--accent)}
     resEmpty.hidden = true; resBody.hidden = false;
 
     countTo(document.getElementById("moneyMain"), r.real);
-    var nS = Math.round(r.sales);
-    document.getElementById("moneySub").textContent = nS < 1
-      ? "меньше одной оплаты с запуска — на таких числах запускать нечего"
-      : "при " + nf.format(nS) + " " + plural(nS, "оплате", "оплатах", "оплатах") + " с одного запуска";
-
     document.getElementById("fReach").textContent = nf.format(Math.round(r.reach)) + " чел.";
     document.getElementById("fLeads").textContent = nf.format(Math.round(r.leads)) + " чел.";
     document.getElementById("fSales").textContent = (r.sales < 1 ? "меньше 1" : nf.format(Math.round(r.sales))) + " чел.";
@@ -860,13 +853,6 @@ footer a:hover{color:var(--accent)}
     document.getElementById("diagTitle").textContent = r.hole.t;
     document.getElementById("diagText").textContent  = r.hole.d;
     document.getElementById("lostVal").textContent   = "+ " + rub(r.loss);
-  }
-
-  function plural(n, one, few, many){
-    var n10 = n % 10, n100 = n % 100;
-    if (n10 === 1 && n100 !== 11) return one;
-    if (n10 >= 2 && n10 <= 4 && (n100 < 10 || n100 >= 20)) return few;
-    return many;
   }
 
   document.querySelectorAll("#calc input").forEach(function(el){
