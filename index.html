@@ -272,15 +272,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,label:focus-visible{
 .fact b{display:block;font-family:Unbounded,sans-serif;font-size:1.5rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.35rem}
 .fact span{font-size:.78rem;color:var(--muted-2);line-height:1.4;display:block}
 
-/* ---------- money ---------- */
-.money-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,2vw,1.5rem);margin-top:clamp(2.5rem,4vw,3.5rem)}
-.mcard{border:1px solid var(--line);border-radius:20px;padding:clamp(1.5rem,2.6vw,2.2rem);background:var(--bg-2)}
-.mcard .eyebrow{margin-bottom:1rem}
-.mcard h3{margin-bottom:.8rem}
-.mcard p{font-size:var(--step-small);max-width:none}
-.money-note{margin-top:2rem;padding:1.3rem 1.5rem;border-left:2px solid var(--accent);background:var(--bg-2);border-radius:0 12px 12px 0}
-.money-note p{font-size:var(--step-small);max-width:none;color:var(--text)}
-
 /* ---------- faq ---------- */
 .faq{margin-top:clamp(2.5rem,4vw,3.5rem);border-top:1px solid var(--line)}
 .q{border-bottom:1px solid var(--line)}
@@ -319,7 +310,7 @@ footer a:hover{color:var(--accent)}
 /* ---------- responsive ---------- */
 @media(max-width:900px){
   .hero-grid,.about-grid,.pain-head{grid-template-columns:1fr}
-  .calc,.levers,.money-grid{grid-template-columns:1fr}
+  .calc,.levers{grid-template-columns:1fr}
   .hero{min-height:auto;padding-block:6.5rem 3.5rem}
   .hero-photo{order:-1;max-width:290px}
   .hero-photo img{aspect-ratio:1;border-radius:140px 140px 14px 14px}
@@ -607,32 +598,6 @@ footer a:hover{color:var(--accent)}
         между которыми я тебя распределю.
       </p>
     </div>
-  </div>
-</section>
-
-<!-- 6. ДЕНЬГИ -->
-<section class="wrap">
-  <div class="eyebrow rv">Как мы будем считаться</div>
-  <h2 class="rv" data-d="1">Фикс плюс процент.<br>Всегда</h2>
-
-  <div class="money-grid">
-    <div class="mcard rv" data-d="1">
-      <div class="eyebrow">Почему не чистый процент</div>
-      <h3>Продюсер за 0% — это продюсер, который ушёл</h3>
-      <p>«Возьму только долю с результата» работает до первого месяца. Дальше человек берёт
-        ещё пять проектов, и твой становится шестым. Фикс — гарантия, что я в проекте.</p>
-    </div>
-    <div class="mcard rv" data-d="2">
-      <div class="eyebrow">От чего зависит</div>
-      <h3>Две цифры, две разные логики</h3>
-      <p>Фикс — по тому, чем ты можешь платить сейчас. Процент — по потенциалу запуска:
-        чем больше проект даёт, тем меньше доля.</p>
-    </div>
-  </div>
-
-  <div class="money-note rv">
-    <p>Сумм на странице нет намеренно. Сначала считаем твой запуск, потом говорим про деньги.
-      Если окажется, что браться незачем, — скажу это первым.</p>
   </div>
 </section>
 
