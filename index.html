@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Илья — продюсер экспертов</title>
+<title>ILYA | CROW MEDIA — продюсер экспертов</title>
 <meta name="description" content="Считаю, сколько твой блог может дать с первого запуска, и показываю, что мешает эти деньги взять. Калькулятор запуска — на странице.">
-<meta property="og:title" content="Илья — продюсер экспертов">
+<meta property="og:title" content="ILYA | CROW MEDIA — продюсер экспертов">
 <meta property="og:description" content="Аудитория у тебя уже есть. Денег с неё — нет. Посчитай свой запуск за минуту.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -98,9 +98,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,label:focus-visible{
   border-bottom:1px solid transparent;
 }
 .nav.stuck{background:rgba(10,10,11,.82);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
-.nav-name{font-family:Unbounded,sans-serif;font-weight:600;font-size:.95rem;letter-spacing:-.02em;text-decoration:none}
+.nav-name{font-family:Unbounded,sans-serif;font-weight:600;font-size:clamp(.72rem,.55rem + .55vw,.95rem);letter-spacing:.01em;text-decoration:none;white-space:nowrap}
 .nav-name span{color:var(--accent)}
-.nav .btn{padding:.7rem 1.25rem;font-size:.88rem}
+.nav .btn{padding:.7rem 1.25rem;font-size:.88rem;white-space:nowrap}
 
 /* ---------- hero ---------- */
 .hero{min-height:100svh;display:flex;align-items:center;padding-block:7rem 4rem;position:relative}
@@ -323,7 +323,8 @@ footer a:hover{color:var(--accent)}
   .pain-item::before{left:-1rem;right:-1rem}
 }
 @media(max-width:420px){
-  .nav .btn{padding:.6rem 1rem;font-size:.82rem}
+  .nav{padding-inline:.9rem}
+  .nav .btn{padding:.55rem .9rem;font-size:.78rem}
   .seg label{padding:.55rem .85rem;font-size:.8rem}
 }
 @media(prefers-reduced-motion:reduce){
@@ -337,7 +338,7 @@ footer a:hover{color:var(--accent)}
 <body>
 
 <nav class="nav" id="nav">
-  <a href="#top" class="nav-name">Илья<span>.</span></a>
+  <a href="#top" class="nav-name">ILYA<span>&nbsp;|&nbsp;</span>CROW MEDIA</a>
   <a class="btn" href="https://t.me/ilia_prod0" target="_blank" rel="noopener">Написать в Telegram</a>
 </nav>
 
@@ -497,7 +498,7 @@ footer a:hover{color:var(--accent)}
       <!-- result -->
       <div class="panel res" id="res" aria-live="polite">
         <div class="res-empty" id="resEmpty">
-          <strong>Заполни поля слева</strong>
+          <strong>Заполни пустые поля</strong>
           Как только появятся подписчики и чек — здесь посчитается твой запуск и вылезет диагноз.
         </div>
 
@@ -720,7 +721,7 @@ footer a:hover{color:var(--accent)}
 
 <footer>
   <div class="wrap foot-row">
-    <div>Илья — продюсер экспертных проектов</div>
+    <div>ILYA | CROW MEDIA — продюсирование экспертных проектов</div>
     <div><a href="https://t.me/ilia_prod0" target="_blank" rel="noopener">@ilia_prod0</a></div>
   </div>
 </footer>
