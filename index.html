@@ -142,6 +142,40 @@ a:focus-visible,button:focus-visible,input:focus-visible,label:focus-visible{
 .hero-scroll::after{content:"";width:1px;height:38px;background:linear-gradient(var(--accent),transparent);animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
 
+/* ---------- nav links ---------- */
+.nav-links{display:none;gap:1.7rem;margin-left:auto;margin-right:1.6rem}
+@media(min-width:920px){.nav-links{display:flex}}
+.nav-links a{font-size:.85rem;color:var(--muted);text-decoration:none;transition:color .25s var(--ease)}
+.nav-links a:hover{color:var(--accent)}
+
+/* ---------- бегущая строка ---------- */
+.marquee{overflow:hidden;border-block:1px solid var(--line);background:var(--bg-2);padding:1.15rem 0}
+.marquee-track{display:flex;width:max-content;animation:slide 30s linear infinite}
+.marquee-track b{
+  display:flex;align-items:center;gap:2.4rem;padding-right:2.4rem;
+  font-family:Unbounded,sans-serif;font-weight:600;
+  font-size:clamp(.85rem,.75rem + .5vw,1.2rem);letter-spacing:.04em;
+  color:var(--muted-2);white-space:nowrap;text-transform:uppercase;
+}
+.marquee-track b::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none}
+@keyframes slide{to{transform:translateX(-50%)}}
+.marquee:hover .marquee-track{animation-play-state:paused}
+
+/* ---------- крупный список ---------- */
+.big-list{border-top:1px solid var(--line);margin-top:clamp(2rem,4vw,3.5rem)}
+.big-row{
+  display:grid;grid-template-columns:3.4rem 1fr;gap:1rem;align-items:baseline;
+  padding:clamp(1.3rem,2.6vw,2.1rem) 0;border-bottom:1px solid var(--line);
+  transition:padding-left .45s var(--ease);
+}
+.big-row:hover{padding-left:.9rem}
+.big-row .n{font-family:Unbounded,sans-serif;font-size:.78rem;font-weight:600;color:var(--accent)}
+.big-row .t{
+  font-family:Unbounded,sans-serif;font-weight:600;
+  font-size:clamp(1.1rem,.85rem + 1.35vw,2rem);letter-spacing:-.03em;line-height:1.15;
+}
+@media(max-width:600px){.big-row{grid-template-columns:2.2rem 1fr;gap:.7rem}}
+
 /* ---------- reveal ---------- */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .rv.in{opacity:1;transform:none}
@@ -339,6 +373,12 @@ footer a:hover{color:var(--accent)}
 
 <nav class="nav" id="nav">
   <a href="#top" class="nav-name">ILYA<span>&nbsp;|&nbsp;</span>CROW MEDIA</a>
+  <div class="nav-links">
+    <a href="#calc">Калькулятор</a>
+    <a href="#work">Работа</a>
+    <a href="#about">Обо мне</a>
+    <a href="#faq">Вопросы</a>
+  </div>
   <a class="btn" href="https://t.me/ilia_prod0" target="_blank" rel="noopener">Написать в Telegram</a>
 </nav>
 
@@ -348,21 +388,19 @@ footer a:hover{color:var(--accent)}
 <section class="hero wrap">
   <div class="hero-grid">
     <div>
+      <div class="eyebrow">Продюсер экспертов</div>
       <h1>
         <span class="ln"><i>Аудитория</i></span>
         <span class="ln"><i>у тебя есть.</i></span>
         <span class="ln"><i>Денег с неё — <span class="neg">нет</span>.</i></span>
       </h1>
-      <p class="hero-sub">
-        Считаю, сколько твой блог даст с первого запуска и где эти деньги теряются.
-        Посчитать можно прямо здесь — без созвона и без переписки со мной.
-      </p>
+      <p class="hero-sub">Считаю, сколько даст твой первый запуск. Прямо здесь, за минуту.</p>
       <div class="hero-cta">
         <a class="btn" href="#calc">
-          Посчитать свой запуск
+          Посчитать запуск
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a class="textlink" href="https://t.me/ilia_prod0" target="_blank" rel="noopener">или сразу напиши мне в телеграм</a>
+        <a class="textlink" href="https://t.me/ilia_prod0" target="_blank" rel="noopener">написать в телеграм</a>
       </div>
     </div>
     <div class="hero-photo">
@@ -372,47 +410,24 @@ footer a:hover{color:var(--accent)}
   <div class="hero-scroll" aria-hidden="true">Листай</div>
 </section>
 
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <b>Запуски</b><b>Воронки</b><b>Прогревы</b><b>Трафик</b><b>Продажи</b><b>Контент</b>
+    <b>Запуски</b><b>Воронки</b><b>Прогревы</b><b>Трафик</b><b>Продажи</b><b>Контент</b>
+  </div>
+</div>
+
 <!-- 2. БОЛЬ -->
 <section class="wrap">
-  <div class="pain-head">
-    <div>
-      <div class="eyebrow rv">Узнаёшь?</div>
-      <h2 class="rv" data-d="1">Ты не в тупике.<br>Ты в четырёх шагах от денег,<br>которых не видишь.</h2>
-    </div>
-  </div>
+  <div class="eyebrow rv">Узнаёшь?</div>
+  <h2 class="rv" data-d="1">Ты не в тупике.<br>Ты в четырёх шагах от денег,<br>которых не видишь</h2>
 
-  <div class="pain-list">
-    <div class="pain-item rv">
-      <div class="pain-n">01</div>
-      <div>
-        <h3>Пишешь годами — продаж нет</h3>
-        <p>Контента много, реакций пять. Он уходит в базу, которая давно не читает.</p>
-      </div>
-    </div>
-    <div class="pain-item rv">
-      <div class="pain-n">02</div>
-      <div>
-        <h3>Продукт есть, но продаёшь руками</h3>
-        <p>Каждая оплата — личная переписка. Отвлёкся на месяц — месяц без денег.</p>
-      </div>
-    </div>
-    <div class="pain-item rv">
-      <div class="pain-n">03</div>
-      <div>
-        <h3>К тебе уже приходили продюсеры</h3>
-        <p>Все писали одинаково, и ни один не назвал ни одной твоей цифры.</p>
-      </div>
-    </div>
-    <div class="pain-item rv">
-      <div class="pain-n">04</div>
-      <div>
-        <h3>Ты не знаешь, сколько стоит твоя аудитория</h3>
-        <p>Сколько человек увидят оффер и сколько заплатят. Этого не считал никто.</p>
-      </div>
-    </div>
+  <div class="big-list">
+    <div class="big-row rv"><span class="n">01</span><span class="t">Пишешь годами — продаж нет</span></div>
+    <div class="big-row rv"><span class="n">02</span><span class="t">Продукт есть, но продаёшь руками</span></div>
+    <div class="big-row rv"><span class="n">03</span><span class="t">Продюсеры писали — твоих цифр не называл никто</span></div>
+    <div class="big-row rv"><span class="n">04</span><span class="t">Сколько стоит твоя аудитория, не считал никто</span></div>
   </div>
-
-  <p class="pain-foot rv">Последний пункт закрывается прямо сейчас. Бесплатно и не заходя ко мне в личку.</p>
 </section>
 
 <!-- 3. КАЛЬКУЛЯТОР -->
@@ -422,8 +437,7 @@ footer a:hover{color:var(--accent)}
       <div class="eyebrow rv">Калькулятор запуска</div>
       <h2 class="rv" data-d="1">Посчитай свой первый запуск</h2>
       <p class="rv" data-d="2">
-        Пять полей. На выходе — деньги первого запуска по шагам воронки
-        и диагноз: какая дыра съедает больше всего.
+        Пять полей — деньги первого запуска и диагноз, какая дыра съедает больше всего.
       </p>
     </div>
 
@@ -542,12 +556,12 @@ footer a:hover{color:var(--accent)}
   <img src="img/neon.jpg" alt="" aria-hidden="true">
   <div class="wrap">
     <blockquote>Цифра выше — не мотивация. Это то, что ты уже заработал и пока не забрал.</blockquote>
-    <cite>Дальше — как её забрать</cite>
+    <cite>Дальше — как забрать</cite>
   </div>
 </section>
 
 <!-- 4. МЕХАНИЗМ -->
-<section class="wrap">
+<section class="wrap" id="work">
   <div class="eyebrow rv">Зона работы</div>
   <h2 class="rv" data-d="1">Запуск собирается<br>из четырёх частей.<br>Все четыре — моя зона</h2>
 
@@ -558,51 +572,40 @@ footer a:hover{color:var(--accent)}
     </div>
     <div class="lever rv" data-d="1"><div class="lever-n">02</div>
       <h3>Воронка и прогрев</h3>
-      <p>Путь от «увидел пост» до «оплатил»: лид-магнит, прогрев, продающее событие, дожимы.</p>
+      <p>Путь от «увидел пост» до «оплатил».</p>
     </div>
     <div class="lever rv" data-d="2"><div class="lever-n">03</div>
-      <h3>Трафик и реанимация базы</h3>
-      <p>Поднимаю охваты, возвращаю спящих, привожу новых — чтобы запуск шёл на живую аудиторию.</p>
+      <h3>Трафик и база</h3>
+      <p>Поднимаю охваты, возвращаю спящих, привожу новых.</p>
     </div>
     <div class="lever rv" data-d="3"><div class="lever-n">04</div>
       <h3>Продажи и созвоны</h3>
-      <p>Скрипты разборов, отработка «дорого», дожим молчунов. Дорогое не продаётся постом с ценой.</p>
+      <p>Скрипты разборов, отработка «дорого», дожим молчунов.</p>
     </div>
   </div>
 
-  <p class="levers-note rv">Техническая часть — боты, воронки, лендинги, нарезка контента — тоже на мне.
-    В работу беру то, что действительно нужно поправить: то, что у тебя уже работает, я не трогаю и не ломаю.</p>
+  <p class="levers-note rv">Боты, лендинги, нарезка контента — тоже на мне. То, что у тебя работает, не трогаю.</p>
 </section>
 
 <!-- 5. АВТОР -->
-<section class="wrap">
+<section class="wrap" id="about">
   <div class="about-grid">
     <div class="about-photo rv">
       <img src="img/cafe.jpg" alt="Илья">
       <div class="photo-tag">@ilia_prod0</div>
     </div>
     <div class="about-body">
-      <div class="eyebrow rv">Почему мне</div>
+      <div class="eyebrow rv">Обо мне</div>
       <h2 class="rv" data-d="1">Скажу прямо,<br>чтобы ты не тратил время</h2>
-
-      <p class="rv" data-d="2">
-        <strong>Скриншотов чужих выручек у меня нет</strong>, и рисовать их я не буду.
-        Придуманная цифра — первое, за что эксперты выкидывают продюсеров.
-      </p>
-      <p class="rv" data-d="2">
-        Вместо них — система. До первого сообщения я читаю твой канал целиком и считаю
-        декомпозицию. Оффер от меня ссылается на твой конкретный пост и твои числа.
-      </p>
-      <p class="rv" data-d="2">
-        И да, я молодой — это значит, что у меня нет двадцати проектов на фоне,
-        между которыми я тебя распределю.
-      </p>
+      <p class="rv" data-d="2"><strong>Скриншотов чужих выручек у меня нет</strong> — и рисовать их я не буду.</p>
+      <p class="rv" data-d="2">До первого сообщения читаю твой канал целиком и считаю декомпозицию. Оффер от меня ссылается на твои посты и твои числа.</p>
+      <p class="rv" data-d="2">И да, я молодой — значит, у меня нет двадцати проектов на фоне, между которыми я тебя распределю.</p>
     </div>
   </div>
 </section>
 
 <!-- 7. ВОПРОСЫ -->
-<section class="wrap">
+<section class="wrap" id="faq">
   <div class="eyebrow rv">Честные ответы</div>
   <h2 class="rv" data-d="1">Что обычно спрашивают</h2>
 
@@ -645,8 +648,7 @@ footer a:hover{color:var(--accent)}
   <div class="wrap">
     <h2 class="rv">Напиши, что посчитал</h2>
     <p class="rv" data-d="1">
-      Скинь цифру из калькулятора и ссылку на блог.
-      Пришлю разбор: что видно снаружи и с чего начал бы я. Бесплатно.
+      Скинь цифру из калькулятора и ссылку на блог — пришлю разбор. Бесплатно.
     </p>
     <a class="btn rv" data-d="2" href="https://t.me/ilia_prod0" target="_blank" rel="noopener">
       Написать в Telegram
